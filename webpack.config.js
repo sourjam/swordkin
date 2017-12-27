@@ -34,14 +34,14 @@ const config = {
     new CopyWebPackPlugin([
       { from: './client/src/index.html', to: '../dist/index.html'}
     ]),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: false,
-      comments: false,
-      compress: {
-         warnings: false,
-         drop_console: false
-       }
-    })
+    // new webpack.optimize.UglifyJsPlugin({
+    //   sourceMap: false,
+    //   comments: false,
+    //   compress: {
+    //      warnings: false,
+    //      drop_console: false
+    //    }
+    // })
   ],
   devtool: 'cheap-sourcemap'
 }
