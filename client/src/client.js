@@ -24,7 +24,7 @@ export default class App extends React.Component {
   render() {
     console.log('calling render')
     return (
-      <div>
+      <div className={'o-swordkin'}>
         { !this.state.start ?
           <StartScreen />
           :
