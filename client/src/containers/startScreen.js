@@ -19,7 +19,7 @@ class startScreen extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={'o-startscreen'}>
         <p><button onClick={this.dispatchAction}>swordkin</button></p>
       </div>
     )
