@@ -18,6 +18,14 @@ export default class App extends React.Component {
   componentDidMount() {
     store.subscribe(() => {
       let newState = store.getState();
+      if (!newState.swordkinReducer.init) {
+        // give new player first letter and first recipe
+        newState.swordkinReducer.init = true
+        newState.swordkinReducer.recipes = []
+        newState.swordkinReducer.recipes.push("papa's sword")
+        newState.swordkinReducer.mail = []
+        newState.swordkinReducer.mail.push("papa's letter")
+      }
       this.setState(newState.swordkinReducer)
     })
   }
@@ -27,7 +35,7 @@ export default class App extends React.Component {
         { !this.state.start ?
           <StartScreen />
           :
-          <GameScreen ore={this.state.ore} />
+          <GameScreen mail={this.state.mail} recipes={this.state.recipes} ore={this.state.ore} />
         }
       </div>
     )
