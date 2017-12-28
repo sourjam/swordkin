@@ -8,7 +8,7 @@ const swordkinReducer = (state = {ore: 0}, action) => {
       newState = {start: action.payload}
       return newState = extend(state, newState);
     case actionType.INCREMENT_ORE:
-      newState = {ore: state.ore + 1}
+      newState = {ore: state.ore + action.payload}
       return newState = extend(state, newState)
     default:
       return state;

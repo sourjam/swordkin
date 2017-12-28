@@ -8,19 +8,15 @@ class gameScreen extends React.Component {
     super(props)
     this.state = {}
     this.state.gameScreen = true
-    this.dispatchAction = this.dispatchAction.bind(this)
+    // this.dispatchAction = this.dispatchAction.bind(this)
     console.log('game screen loaded')
   }
 
   componentDidMount() {
     setInterval(()=>{
-      this.props.dispatch(incrementOre())
+      // commenting out for test
+      this.props.dispatch(incrementOre(10))
     }, 1000)
-  }
-
-  dispatchAction() {
-    this.props.dispatch(incrementOre())
-    console.log('dispatch from startscreen')
   }
 
   render() {

@@ -16,7 +16,6 @@ export default class App extends React.Component {
     this.state = {};
   }
   componentDidMount() {
-    // show start screen
     store.subscribe(() => {
       let newState = store.getState();
       this.setState(newState.swordkinReducer)
