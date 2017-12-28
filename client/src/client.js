@@ -6,6 +6,7 @@ import reducer from './reducers'
 import css from './client.css'
 
 import StartScreen from './containers/startScreen'
+import GameScreen from './containers/gameScreen'
 
 const store = createStore(reducer)
 
@@ -22,13 +23,12 @@ export default class App extends React.Component {
     })
   }
   render() {
-    console.log('calling render')
     return (
       <div className={'o-swordkin'}>
         { !this.state.start ?
           <StartScreen />
           :
-          <div>game on</div>
+          <GameScreen ore={this.state.ore} />
         }
       </div>
     )

@@ -1,13 +1,15 @@
 import * as actionType from '../actions/actionType'
 import extend from 'lodash/fp/extend';
 
-const swordkinReducer = (state = [], action) => {
+const swordkinReducer = (state = {ore: 0}, action) => {
   let newState;
   switch(action.type) {
     case actionType.START_GAME:
-      newState = {start: true}
+      newState = {start: action.payload}
       return newState = extend(state, newState);
-      break;
+    case actionType.INCREMENT_ORE:
+      newState = {ore: state.ore + 1}
+      return newState = extend(state, newState)
     default:
       return state;
   }
