@@ -48,9 +48,17 @@ class gameScreenMail extends React.Component {
                     From: {letter.from}, <i>{letter.subject}</i>
                   </div>
                   <div style={{display: 'none'}} id={'m-letterModal-' + idx } className={'m-letterModal'}>
-                    <div onClick={() => {this.displayLetterModal(idx, letter)}}>X</div>
                     <p>From: {letter.from}</p>
                     <p>{ letter.content }</p>
+                    { letter.materials ?
+                      <p><strong>Enclosed material: {letter.materials[0].name} x {letter.materials[0].count}</strong></p>
+                      : null
+                    }
+                    { letter.recipes ?
+                      <p><strong>Enclosed recipe: {letter.recipes[0].name}</strong></p>
+                      : null
+                    }
+                    <button onClick={() => {this.displayLetterModal(idx, letter)}}>Collect</button>
                   </div>
                 </div>
               )
