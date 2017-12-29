@@ -12,7 +12,7 @@ class gameScreenMail extends React.Component {
     this.displayLetterModal = this.displayLetterModal.bind(this)
   }
 
-  // displays modal when clicking mail button
+  // displays mail modal for list of mails
   displayMailModal() {
     let modal = document.getElementById("m-mailModal")
     if (modal.style.opacity == 0) {
@@ -22,17 +22,16 @@ class gameScreenMail extends React.Component {
     }
   }
 
-  displayLetterModal(idx) {
-    console.log(idx)
+  // displays individual letters in a modal
+  displayLetterModal(idx, letter) {
     let modal = document.getElementById('m-letterModal-' + idx)
     if (modal.style.display == 'none') {
       modal.style.display = 'inherit'
     } else {
-      console.log('go to none...')
-      this.props.dispatch(markMailread(idx))
+      // check if letter has items to collect
+      this.props.dispatch(markMailread(idx, letter.materials, letter.recipes))
       modal.style.display = 'none'
     }
-    // console.log(mailModal)
   }
 
   render() {
@@ -49,7 +48,7 @@ class gameScreenMail extends React.Component {
                     From: {letter.from}, <i>{letter.subject}</i>
                   </div>
                   <div style={{display: 'none'}} id={'m-letterModal-' + idx } className={'m-letterModal'}>
-                    <div onClick={() => {this.displayLetterModal(idx)}}>X</div>
+                    <div onClick={() => {this.displayLetterModal(idx, letter)}}>X</div>
                     <p>From: {letter.from}</p>
                     <p>{ letter.content }</p>
                   </div>

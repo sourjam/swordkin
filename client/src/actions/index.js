@@ -6,11 +6,9 @@ export const startGame = () => ({
 })
 
 export const incrementOre = (amount = 1) => {
-  console.log('amount', amount)
   return ({type: actionType.INCREMENT_ORE, payload: amount})
 }
 
-export const markMailread = (index) => {
-  console.log('mark read', index)
-  return ({type: actionType.MARK_MAILREAD, payload: index})
+export const markMailread = (index, materials, recipes) => {
+  return ({type: actionType.MARK_MAILREAD, payload: {index: index, materials: materials, recipes: recipes}})
 }

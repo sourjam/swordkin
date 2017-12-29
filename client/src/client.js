@@ -21,20 +21,31 @@ export default class App extends React.Component {
       if (!newState.swordkinReducer.init) {
         // give new player first letter and first recipe
         newState.swordkinReducer.init = true
-        newState.swordkinReducer.recipes = []
+        newState.swordkinReducer.recipes = {}
+        newState.swordkinReducer.materials = {}
         // newState.swordkinReducer.recipes.push("papa's sword")
         newState.swordkinReducer.mail = []
         let initRecipe = {
+          type: 'recipe',
+          id: 'swordAmmit',
           name: 'Sword of Ammit',
           descrip: "Papa's greatest work.",
-          requires: [{ore: 10}]
+          requires: [{ore: 10, soulHilt: 1}]
+        }
+        let initMaterial = {
+          type: 'material',
+          id: 'soulHilt',
+          name: 'Soul Hilt',
+          descrip: "A mysterious broken fragment from Papa.",
+          count: 1
         }
         let initMail = {
           unread: true,
           from: 'Papa',
           subject: 'Sword of Ammit',
-          content: 'Dear child, go forth and make your mark on the world. I bequeath to you the instructions for my greatest creation, the Sword of Ammit. It will absorb the strengths of those it kills into its very steel, making it stronger. Should the weapon break, its fragments will still be infused. This imbued steel can be reforged with other fragments creating an even more powerful weapon, even the strongest weapon...',
-          items: [initRecipe],
+          content: 'Dear child, go forth and make your mark on the world. I bequeath to you the materials to craft my greatest creation, the Sword of Ammit. It will absorb the strengths of those it kills. And should the weapon break, its fragments will hold onto that same strength. Reforge with other Ammit fragments to create an an even more powerful weapon. One day even the strongest weapon.',
+          recipes: [initRecipe],
+          materials: [initMaterial],
           quests: []
         }
         newState.swordkinReducer.mail.push(initMail)
@@ -52,7 +63,7 @@ export default class App extends React.Component {
         { !this.state.start ?
           <StartScreen />
           :
-          <GameScreen mail={this.state.mail} unreadMail={unreadMail.length} recipes={this.state.recipes} ore={this.state.ore} />
+          <GameScreen mail={this.state.mail} unreadMail={unreadMail.length} materials={this.state.materials} recipes={this.state.recipes} ore={this.state.ore} />
         }
       </div>
     )
