@@ -44,11 +44,11 @@ class gameScreenMail extends React.Component {
         <div style={{opacity: 0}} id="m-mailModal" className={'m-mailModal'}>
           { this.props.mail.map((letter, idx) => {
               return (
-                <div>
+                <div key={'mail-' + idx}>
                   <div onClick={() => {this.displayLetterModal(idx)}} className={'a-letterHeader'} key={'letter-' + idx}>
                     From: {letter.from}, <i>{letter.subject}</i>
                   </div>
-                  <div id={'m-letterModal-' + idx } className={'m-letterModal'}>
+                  <div style={{display: 'none'}} id={'m-letterModal-' + idx } className={'m-letterModal'}>
                     <div onClick={() => {this.displayLetterModal(idx)}}>X</div>
                     <p>From: {letter.from}</p>
                     <p>{ letter.content }</p>

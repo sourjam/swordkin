@@ -31,7 +31,7 @@ class gameScreen extends React.Component {
           { this.props.recipes && this.props.recipes.length > 0 ?
             <button>Recipes: {this.props.recipes.length}</button>
           : null }
-          { this.props.ore > 10 ? <button>Craft Sword</button> : null }
+          { this.props.ore >= 10 ? <button>Craft Sword</button> : null }
         </div>
       </div>
     )

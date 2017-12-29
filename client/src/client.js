@@ -25,15 +25,15 @@ export default class App extends React.Component {
         // newState.swordkinReducer.recipes.push("papa's sword")
         newState.swordkinReducer.mail = []
         let initRecipe = {
-          name: 'The Unbreakable',
+          name: 'Sword of Ammit',
           descrip: "Papa's greatest work.",
           requires: [{ore: 10}]
         }
         let initMail = {
           unread: true,
           from: 'Papa',
-          subject: 'The Unbreakable',
-          content: 'Dear child, go forth and make your mark on the world. Please use this recipe for my greatest creation, The Unbreakable sword. It may not be the strongest but it will endure eternity.',
+          subject: 'Sword of Ammit',
+          content: 'Dear child, go forth and make your mark on the world. I bequeath to you the instructions for my greatest creation, the Sword of Ammit. It will absorb the strengths of those it kills into its very steel, making it stronger. Should the weapon break, its fragments will still be infused. This imbued steel can be reforged with other fragments creating an even more powerful weapon, even the strongest weapon...',
           items: [initRecipe],
           quests: []
         }
