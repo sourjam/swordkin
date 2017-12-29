@@ -66,3 +66,25 @@ html, body {
   width: 80vw;
   background-color: white;
 }
+
+.m-letterModal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 75vh;
+  width: 80vw;
+  display: none;
+  background-color: white;
+}
+
+.a-letterModalButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.a-letterHeader {
+  padding-left: 1%;
+  background-color: pink;
+  text-align: justify;
+}

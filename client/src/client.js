@@ -31,6 +31,7 @@ export default class App extends React.Component {
         }
         let initMail = {
           unread: true,
+          from: 'Papa',
           subject: 'The Unbreakable',
           content: 'Dear child, go forth and make your mark on the world. Please use this recipe for my greatest creation, The Unbreakable sword. It may not be the strongest but it will endure eternity.',
           items: [initRecipe],

@@ -10,6 +10,11 @@ const swordkinReducer = (state = {ore: 0}, action) => {
     case actionType.INCREMENT_ORE:
       newState = {ore: state.ore + action.payload}
       return newState = extend(state, newState)
+    case actionType.MARK_MAILREAD:
+      let newMail = state.mail.slice(0);
+      newMail[action.payload].unread = false;
+      newState = {mail: newMail}
+      return newState = extend(state, newState)
     default:
       return state;
   }
