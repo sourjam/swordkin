@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { incrementOre } from '../actions';
 import { bindActionCreators } from 'redux';
 
+import GameScreenMail from './gameScreenMail';
+
 class gameScreen extends React.Component {
   constructor(props) {
     super(props)
@@ -24,9 +26,7 @@ class gameScreen extends React.Component {
         <div className={'a-oreCounter'}>Ore: {this.props.ore}</div>
         <div className={'m-actionMenu'}>
           { this.props.mail && this.props.mail.length > 0 ?
-
-            <button>Mail: {this.props.unreadMail}</button>
-
+            <GameScreenMail unreadMail={this.props.unreadMail} mail={this.props.mail} />
           : null }
           { this.props.recipes && this.props.recipes.length > 0 ?
             <button>Recipes: {this.props.recipes.length}</button>

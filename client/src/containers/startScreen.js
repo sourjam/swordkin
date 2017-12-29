@@ -21,9 +21,9 @@ class startScreen extends React.Component {
     return (
       <div className={'o-startscreen'}>
         <p>Welcome to Swordkin</p>
-        <p>You are a swordsmith living in a small village.<br />Your father was a swordsmith, and his father, and so on, and so on.</p>
-        <p>Local villagers bring you precious ore every second.<br />Traveling warriors seek your weapons to fight monsters for feats and fame.<br />Kingdoms may entice you to craft for their realms.</p>
-        <p>To start your trade, your late father has left you the recipe for his greatest sword...</p><p>The Unbreakable.</p>
+        <p>You are a swordsmith starting your trade in a small village.<br />Your father was a swordsmith, and his father, and so on, and such that.</p>
+        <p>Local villagers bring you <strong>metal ore</strong> every second.<br /><strong>Visitors</strong> seek your weapons to fight monsters for feats and fame.<br />Kingdoms may entice you to <strong>craft</strong> for their realms.</p>
+        <p>A <strong>letter</strong> awaits upon your arrival in your new home...</p>
         <p><button onClick={this.dispatchAction}>Start</button></p>
       </div>
     )
