@@ -12,3 +12,7 @@ export const incrementOre = (amount = 1) => {
 export const markMailread = (index, materials, recipes) => {
   return ({type: actionType.MARK_MAILREAD, payload: {index: index, materials: materials, recipes: recipes}})
 }
+
+export const forgeSword = (recipe, reqKeys) => {
+  return ({type: actionType.FORGE_SWORD, payload: {recipe: recipe, reqKeys: reqKeys}})
+}

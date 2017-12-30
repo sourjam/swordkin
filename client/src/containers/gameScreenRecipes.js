@@ -1,9 +1,8 @@
 import React from 'react';
 import materialMap from '../lib/nameMapping.js'
-
-class Recipe extends React.Component {
-
-}
+import { connect } from 'react-redux';
+import { forgeSword } from '../actions';
+import { bindActionCreators } from 'redux';
 
 class gameScreenRecipes extends React.Component {
   constructor(props) {
@@ -45,13 +44,13 @@ class gameScreenRecipes extends React.Component {
                 <div><strong>{recipe.name}</strong></div>
                 <div><i>{recipe.descrip}</i></div>
                 <div className={'a-recipeReqs'}>
-                  <div>Requires:</div>
+                  <div><strong>Requires:</strong></div>
                   { reqs.map((key, i) => {
                     return <div key={'recipeMaterial-' + i}>{materialMap[key]} x {recipe.requires[key]}</div>
                   })}
                 </div>
                   { checkMap !== undefined && checkMap.result === true ?
-                    <button className={'a-recipeForgeButton'}>Forge Sword</button>
+                    <button onClick={() => { this.props.dispatch(forgeSword(recipe, reqs))} } className={'a-recipeForgeButton'}>Forge Sword</button>
                     : null
                   }
               </div>
@@ -63,4 +62,8 @@ class gameScreenRecipes extends React.Component {
   }
 }
 
-export default gameScreenRecipes;
+function mapDispatchToProps(dispatch) {
+  return { actions: bindActionCreators(forgeSword, dispatch) }
+}
+
+export default connect(mapDispatchToProps)(gameScreenRecipes);

@@ -41,6 +41,16 @@ const swordkinReducer = (state = {swords: [], materials: {ore: {count: 0}}, reci
       let temp = extend(state, newState)
       console.log('new state', newState, temp)
       return newState = extend(state, newState)
+    case actionType.FORGE_SWORD:
+      newState = clone(state)
+      newState.swords.push(action.payload.recipe)
+      for (let i = 0; i < action.payload.reqKeys.length; i++) {
+        let key = action.payload.reqKeys[i]
+        console.log('KEY', key)
+        newState.materials[key].count = newState.materials[key].count - action.payload.recipe.requires[key]
+      }
+      console.log('new sword state', newState)
+      return newState;
     default:
       return state;
   }
