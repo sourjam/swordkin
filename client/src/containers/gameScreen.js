@@ -36,7 +36,10 @@ class gameScreen extends React.Component {
   render() {
     return (
       <div className={'o-gamescreen'}>
-        <div className={'a-oreCounter'}>Ore: {this.props.ore}</div>
+        { this.props.materials ?
+          <div className={'a-oreCounter'}>Ore: {this.props.materials.ore}</div>
+          : null
+        }
         <div className={'m-actionMenu'}>
           { Array.isArray(this.props.swords) ?
             <button className={ this.state.currentModal == 0 ? 'isActive' : null } onClick={()=>{this.displayModal(0)}}>
@@ -53,7 +56,7 @@ class gameScreen extends React.Component {
               Recipes
             </button>
           : null }
-          { this.props.materials && Object.keys(this.props.materials).length > 0 ? <button>Materials</button>
+          { this.props.materials && Object.keys(this.props.materials).length > 1 ? <button>Materials</button>
           : null}
           { this.props.ore >= 10 && Object.keys(this.props.recipes).length > 0 ? <button>Quests</button> : null }
 
@@ -67,7 +70,7 @@ class gameScreen extends React.Component {
           }
           {
             this.props.recipes && this.state.currentModal == 2 ?
-            <GameScreenRecipes recipes={this.props.recipes} /> : null
+            <GameScreenRecipes materials={this.props.materials} recipes={this.props.recipes} /> : null
           }
         </div>
       </div>
