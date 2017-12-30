@@ -37,7 +37,7 @@ class gameScreen extends React.Component {
     return (
       <div className={'o-gamescreen'}>
         { this.props.materials ?
-          <div className={'a-oreCounter'}>Ore: {this.props.materials.ore}</div>
+          <div className={'a-oreCounter'}>Ore: {this.props.materials.ore.count}</div>
           : null
         }
         <div className={'m-actionMenu'}>

@@ -16,7 +16,7 @@ class gameScreenRecipes extends React.Component {
       let recipeReq = recipeReqs[recipeKeys[i]]
       let currentMaterial = materials[recipeKeys[i]]
       console.log('materials', materials, recipeKeys[i])
-      checkMap[recipeKeys[i]] = recipeReq - currentMaterial
+      // checkMap[recipeKeys[i]] = recipeReq - currentMaterial.
     }
     console.log('CHECK MAP', checkMap)
   }

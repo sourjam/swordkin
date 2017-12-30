@@ -22,7 +22,7 @@ export default class App extends React.Component {
         // give new player first letter and first recipe
         newState.swordkinReducer.init = true
         newState.swordkinReducer.recipes = {}
-        newState.swordkinReducer.materials = {ore: 0}
+        newState.swordkinReducer.materials = {ore: {count: 0}}
         newState.swordkinReducer.mail = []
         newState.swordkinReducer.swords = []
         let initRecipe = {
