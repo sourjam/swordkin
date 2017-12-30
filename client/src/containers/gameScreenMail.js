@@ -55,7 +55,10 @@ class gameScreenMail extends React.Component {
                       <p><strong>Enclosed recipe: {letter.recipes[0].name}</strong></p>
                       : null
                     }
-                    <button onClick={() => {this.displayLetterModal(idx, letter)}}>Collect</button>
+                    { letter.unread === true ?
+                      <button onClick={() => {this.displayLetterModal(idx, letter)}}>Collect</button>
+                      : null
+                    }
                   </div>
                 </div>
               )
