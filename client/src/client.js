@@ -30,7 +30,7 @@ export default class App extends React.Component {
           id: 'swordAmmit',
           name: 'Sword of Ammit',
           descrip: "Papa's greatest work.",
-          requires: [{ore: 10, soulHilt: 1}]
+          requires: {ore: 10, soulHilt: 1}
         }
         let initMaterial = {
           type: 'material',

@@ -49,6 +49,7 @@ html, body {
   height: 75vh;
 }
 
+/* BUTTON MENU */
 .m-actionMenu {
   position: absolute;
   top: 10%;
@@ -73,40 +74,20 @@ html, body {
   outline: none;
   border: none;
 }
+/* END OF BUTTON MENU */
 
+/* ORE COUNTER */
 .a-oreCounter {
   position: absolute;
   top: 1%;
   left: 5%;
 }
+/* END OF ORE COUNTER */
 
-.m-gameScreenArmory {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: inherit;
-  width: inherit;
-}
-
-.a-armoryEmptyMsg {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-  text-align: center;
-}
-
-.o-gameScreenMail {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 20vw;
-}
-
+/* MAIL VIEW */
 .m-gameScreenMail {
   position: relative;
-  background-color: aliceblue;
+  background-color: white;
   left: 20vw;
 }
 
@@ -116,7 +97,7 @@ html, body {
   left: 0;
   height: 75vh;
   width: 80vw;
-  background-color: aliceblue;
+  background-color: white;
 }
 
 .m-letterModal {
@@ -141,9 +122,38 @@ html, body {
 }
 
 .a-letterHeader {
-  padding-left: 1%;
-  background-color: pink;
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 3%;
+  padding-left: 5%;
+  background-color: white;
   text-align: justify;
+}
+/* END OF MAIL VIEW */
+
+/* ARMORY VIEW */
+.m-gameScreenArmory {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: inherit;
+  width: inherit;
+}
+
+.a-armoryEmptyMsg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+.o-gameScreenMail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20vw;
 }
 
 .m-armoryModal {
@@ -153,4 +163,14 @@ html, body {
   height: 75vh;
   width: 80vw;
   background-color: lightslategray;
+}
+/* END OF ARMORY VIEW */
+
+/* RECIPES VIEW */
+.m-gameScreenRecipes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: inherit;
+  width: inherit;
 }

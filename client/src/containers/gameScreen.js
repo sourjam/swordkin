@@ -55,7 +55,7 @@ class gameScreen extends React.Component {
           : null }
           { this.props.materials && Object.keys(this.props.materials).length > 0 ? <button>Materials</button>
           : null}
-          { this.props.ore >= 10 && Object.keys(this.props.recipes).length > 0 ? <button>Forge</button> : null }
+          { this.props.ore >= 10 && Object.keys(this.props.recipes).length > 0 ? <button>Quests</button> : null }
 
         </div>
         <div className={'m-actionModals'}>
