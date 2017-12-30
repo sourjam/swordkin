@@ -12,13 +12,21 @@ class gameScreenRecipes extends React.Component {
   }
   verifyMaterials(recipeKeys, recipeReqs, materials) {
     let checkMap = {}
+    let checks = []
     for (let i = 0; i < recipeKeys.length; i++) {
       let recipeReq = recipeReqs[recipeKeys[i]]
       let currentMaterial = materials[recipeKeys[i]]
-      console.log('materials', materials, recipeKeys[i])
-      checkMap[recipeKeys[i]] = recipeReq - currentMaterial.count
+      let check = recipeReq - currentMaterial.count
+      checkMap[recipeKeys[i]] = check
+      if (check <= 0) {
+        checks.push(true)
+      } else {
+        checks.push(false)
+      }
     }
+    checkMap.result = checks.reduce((a,b) => a && b);
     console.log('CHECK MAP', checkMap)
+    return checkMap;
   }
   render() {
     let recipeKeys = Object.keys(this.props.recipes)
@@ -29,8 +37,8 @@ class gameScreenRecipes extends React.Component {
             let reqs = Object.keys(recipe.requires)
 
             // check current materials
-            console.log('MATERIALS', this.props.materials)
             let checkMap = this.verifyMaterials(reqs, recipe.requires, this.props.materials)
+            console.log('MATERIALS', checkMap)
 
             return (
               <div className={'m-recipeCard'} key={'recipe-' + i}>
@@ -42,7 +50,10 @@ class gameScreenRecipes extends React.Component {
                     return <div key={'recipeMaterial-' + i}>{materialMap[key]} x {recipe.requires[key]}</div>
                   })}
                 </div>
-                <button className={'a-recipeForgeButton'}>Forge Sword</button>
+                  { checkMap !== undefined && checkMap.result === true ?
+                    <button className={'a-recipeForgeButton'}>Forge Sword</button>
+                    : null
+                  }
               </div>
             )
           })
