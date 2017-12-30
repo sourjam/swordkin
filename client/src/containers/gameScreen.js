@@ -4,10 +4,12 @@ import { incrementOre } from '../actions';
 import { bindActionCreators } from 'redux';
 
 import GameScreenMail from './gameScreenMail';
+import GameScreenArmory from './gameScreenArmory';
 // todo
 // GameScreenRecipes
 // GameScreenMaterials
 // GameScreenCraft
+// GameScreenArmory
 
 class gameScreen extends React.Component {
   constructor(props) {
@@ -25,7 +27,6 @@ class gameScreen extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div className={'o-gamescreen'}>
         <div className={'a-oreCounter'}>Ore: {this.props.ore}</div>
@@ -39,6 +40,9 @@ class gameScreen extends React.Component {
           { this.props.materials && Object.keys(this.props.materials).length > 0 ? <button>Materials</button>
           : null}
           { this.props.ore >= 10 && Object.keys(this.props.recipes).length > 0 ? <button>Forge</button> : null }
+          { Array.isArray(this.props.swords) ?
+            <GameScreenArmory swordCount={this.props.swords.length} /> : null
+          }
         </div>
       </div>
     )
