@@ -41,7 +41,7 @@ class gameScreenMail extends React.Component {
           { this.props.mail.map((letter, idx) => {
               return (
                 <div key={'mail-' + idx}>
-                  <div style={ letter.unread === true ? {color: 'red'} : null } onClick={() => {this.displayLetterModal(idx)}} className={'a-letterHeader'} key={'letter-' + idx}>
+                  <div style={ letter.unread === true ? {border: '1px solid red' ,color: 'red'} : null } onClick={() => {this.displayLetterModal(idx)}} className={'a-letterHeader'} key={'letter-' + idx}>
                     From: {letter.from}, <i>{letter.subject}</i>
                   </div>
                   <div style={{display: 'none'}} id={'m-letterModal-' + idx } className={'m-letterModal'}>
