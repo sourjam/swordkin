@@ -17,6 +17,8 @@ class gameScreen extends React.Component {
     this.state = {}
     this.state.gameScreen = true
     this.state.intervalRef
+    this.state.currentModal = 0
+    this.displayModal = this.displayModal.bind(this)
     console.log('game screen loaded')
   }
 
@@ -26,13 +28,22 @@ class gameScreen extends React.Component {
     }, 1000)
   }
 
+  displayModal(id) {
+    this.setState({currentModal: id})
+  }
+
   render() {
     return (
       <div className={'o-gamescreen'}>
         <div className={'a-oreCounter'}>Ore: {this.props.ore}</div>
         <div className={'m-actionMenu'}>
+          { Array.isArray(this.props.swords) ?
+            <button onClick={()=>{this.displayModal(0)}}>Armory: {this.props.swords.length}</button> : null
+          }
           { this.props.mail && this.props.mail.length > 0 ?
-            <GameScreenMail unreadMail={this.props.unreadMail} mail={this.props.mail} />
+            <button onClick={()=>{this.displayModal(1)}}>
+              Mail: {this.props.unreadMail == 0 ? <span>{this.props.unreadMail}</span> : <strong style={{color: 'red'}}>{this.props.unreadMail}</strong> }
+            </button>
           : null }
           { this.props.recipes && Object.keys(this.props.recipes).length > 0 ?
             <button>Recipes</button>
@@ -40,8 +51,14 @@ class gameScreen extends React.Component {
           { this.props.materials && Object.keys(this.props.materials).length > 0 ? <button>Materials</button>
           : null}
           { this.props.ore >= 10 && Object.keys(this.props.recipes).length > 0 ? <button>Forge</button> : null }
-          { Array.isArray(this.props.swords) ?
-            <GameScreenArmory swordCount={this.props.swords.length} /> : null
+
+        </div>
+        <div className={'m-actionModals'}>
+          { this.props.swords && this.state.currentModal == 0 ?
+            <GameScreenArmory swords={this.props.swords} swordCount={this.props.swords.length} /> : null
+          }
+          { this.props.mail && this.state.currentModal == 1 ?
+            <GameScreenMail unreadMail={this.props.unreadMail} mail={this.props.mail} /> : null
           }
         </div>
       </div>

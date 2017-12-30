@@ -35,12 +35,9 @@ class gameScreenMail extends React.Component {
   }
 
   render() {
-    // mail modal button and modal
-    // unread mail will be bold and red in color
-    //
     return (
       <div className={'o-gameScreenMail'}>
-        <div style={{opacity: 0}} id="m-mailModal" className={'m-mailModal'}>
+        <div style={{opacity: 1}} id="m-mailModal" className={'m-mailModal'}>
           { this.props.mail.map((letter, idx) => {
               return (
                 <div key={'mail-' + idx}>
@@ -65,9 +62,6 @@ class gameScreenMail extends React.Component {
             })
           }
         </div>
-        <button onClick={this.displayMailModal} className={'m-gameScreenMail'}>
-          Mail: {this.props.unreadMail == 0 ? <span>{this.props.unreadMail}</span> : <strong style={{color: 'red'}}>{this.props.unreadMail}</strong> }
-        </button>
       </div>
     )
   }

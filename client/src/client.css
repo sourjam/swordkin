@@ -40,6 +40,15 @@ html, body {
   width: 100%;
 }
 
+.m-actionModals {
+  position: relative;
+  top: 15%;
+  left: 10%;
+  background-color: white;
+  width: 80vw;
+  height: 75vh;
+}
+
 .m-actionMenu {
   position: absolute;
   top: 10%;
@@ -53,7 +62,7 @@ html, body {
   left: 5%;
 }
 
-.o-gameScreenArmory {
+.m-gameScreenArmory {
   position: absolute;
   top: 0;
   left: 0;

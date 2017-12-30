@@ -6,10 +6,8 @@ class gameScreenArmory extends React.Component {
   }
   render() {
     return (
-      <div className={'.o-gameScreenArmory'}>
-        <button className={'m-gameScreenArmory'}>
-          Armory: {this.props.swordCount}
-        </button>
+      <div className={'.m-gameScreenArmory'}>
+        armory here
       </div>
     )
   }

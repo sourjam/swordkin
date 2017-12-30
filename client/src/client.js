@@ -58,6 +58,7 @@ export default class App extends React.Component {
     if (this.state.mail) {
       unreadMail = this.state.mail.filter(letter => letter.unread === true)
     }
+    this.state.start = true //debug flag
     return (
       <div className={'o-swordkin'}>
         { !this.state.start ?
