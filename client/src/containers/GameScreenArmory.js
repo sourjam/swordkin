@@ -6,8 +6,12 @@ class gameScreenArmory extends React.Component {
   }
   render() {
     return (
-      <div className={'.m-gameScreenArmory'}>
-        armory here
+      <div className={'m-gameScreenArmory'}>
+        { this.props.swords.length === 0 ?
+          <div className={'a-armoryEmptyMsg'}>No swords here...<br />Why not try making one?</div>
+          :
+          <div>some swords here</div>
+        }
       </div>
     )
   }

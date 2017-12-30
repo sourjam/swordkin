@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 
 import GameScreenMail from './gameScreenMail';
 import GameScreenArmory from './gameScreenArmory';
+import GameScreenRecipes from './gameScreenRecipes';
 // todo
 // GameScreenRecipes
 // GameScreenMaterials
@@ -38,15 +39,19 @@ class gameScreen extends React.Component {
         <div className={'a-oreCounter'}>Ore: {this.props.ore}</div>
         <div className={'m-actionMenu'}>
           { Array.isArray(this.props.swords) ?
-            <button onClick={()=>{this.displayModal(0)}}>Armory: {this.props.swords.length}</button> : null
+            <button className={ this.state.currentModal == 0 ? 'isActive' : null } onClick={()=>{this.displayModal(0)}}>
+              Armory: {this.props.swords.length}
+            </button> : null
           }
           { this.props.mail && this.props.mail.length > 0 ?
-            <button onClick={()=>{this.displayModal(1)}}>
+            <button className={ this.state.currentModal == 1 ? 'isActive' : null } onClick={()=>{this.displayModal(1)}}>
               Mail: {this.props.unreadMail == 0 ? <span>{this.props.unreadMail}</span> : <strong style={{color: 'red'}}>{this.props.unreadMail}</strong> }
             </button>
           : null }
           { this.props.recipes && Object.keys(this.props.recipes).length > 0 ?
-            <button>Recipes</button>
+            <button className={ this.state.currentModal == 2 ? 'isActive' : null } onClick={()=>{this.displayModal(2)}}>
+              Recipes
+            </button>
           : null }
           { this.props.materials && Object.keys(this.props.materials).length > 0 ? <button>Materials</button>
           : null}
@@ -59,6 +64,10 @@ class gameScreen extends React.Component {
           }
           { this.props.mail && this.state.currentModal == 1 ?
             <GameScreenMail unreadMail={this.props.unreadMail} mail={this.props.mail} /> : null
+          }
+          {
+            this.props.recipes && this.state.currentModal == 2 ?
+            <GameScreenRecipes recipes={this.props.recipes} /> : null
           }
         </div>
       </div>
