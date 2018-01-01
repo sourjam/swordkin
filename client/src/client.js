@@ -42,7 +42,7 @@ export default class App extends React.Component {
           type: 'material',
           id: 'soulHilt',
           name: 'Soul Hilt',
-          descrip: "A mysterious broken fragment from Papa.",
+          descrip: "A mysterious gift from Papa.",
           count: 1
         }
         let initMail = {

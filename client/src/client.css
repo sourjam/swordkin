@@ -85,6 +85,13 @@ html, body {
 /* END OF ORE COUNTER */
 
 /* MAIL VIEW */
+.o-gameScreenMail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20vw;
+}
+
 .m-gameScreenMail {
   position: relative;
   background-color: white;
@@ -147,13 +154,6 @@ html, body {
   height: 100%;
   width: 100%;
   text-align: center;
-}
-
-.o-gameScreenMail {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 20vw;
 }
 
 .m-armoryModal {
@@ -219,4 +219,26 @@ html, body {
   position: absolute;
   top: 1vw;
   right: 1vw;
+}
+/* END OF RECIPES VIEW */
+
+/* MATERIALS VIEW */
+.o-gameScreenMaterials {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: inherit;
+  width: inherit;
+}
+
+.m-materialsRow {
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  padding: 3%;
+  padding-left: 1%;
+}
+
+.m-materialsRow:last-child {
+  border-bottom: 1px solid black;
 }
