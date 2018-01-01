@@ -19,6 +19,9 @@ class gameScreenArmory extends React.Component {
                   <div>Durability: {sword.durability}</div>
                   <div>Element: {sword.element}</div>
                   <div>Feats: { sword.feats.length === 0 ? 'None' : sword.feats[0]}</div>
+                  <div className={'a-armoryCardStatus'}>Status:<br />
+                    { sword.quest === true ? 'On a quest' : 'In armory' }
+                  </div>
                 </div>
               )
             })}

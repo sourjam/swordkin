@@ -170,6 +170,17 @@ html, body {
   align-items: left;
   justify-content: left;
   flex-direction: column;
+  padding-left: 1%;
+  border: 1px solid black;
+  border-radius: 3px;
+  position: relative;
+}
+
+.a-armoryCardStatus {
+  position: absolute;
+  right: 1vw;
+  top: 1vw;
+  font-size: .9em;
 }
 /* END OF ARMORY VIEW */
 

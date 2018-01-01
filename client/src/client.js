@@ -34,7 +34,8 @@ export default class App extends React.Component {
           power: 99,
           durability: 1,
           element: '???',
-          feats: []
+          quest: false,
+          feats: [],
         }
         let initMaterial = {
           type: 'material',

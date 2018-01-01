@@ -8,6 +8,9 @@ const swordkinReducer = (state = {swords: [], materials: {ore: {count: 0}}, reci
     case actionType.START_GAME:
       newState = {start: action.payload}
       return newState = extend(state, newState);
+    case actionType.INCREMENT_TIME:
+      // internal timer for quests
+      return state;
     case actionType.INCREMENT_ORE:
       let newState = clone(state)
       newState.materials.ore.count = state.materials.ore.count + action.payload

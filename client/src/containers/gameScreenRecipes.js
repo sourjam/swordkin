@@ -49,7 +49,9 @@ class gameScreenRecipes extends React.Component {
                     return (
                       <div className={'a-recipeMaterial'} key={'recipeMaterial-' + i}>
                         <div>{ materialMap[key]} x {recipe.requires[key] }</div>
-                        <div style={{color: 'red'}}>{ checkMap[key] > 0 ? 'You need: ' + checkMap[key] : null }</div>
+                        <div style={ checkMap[key] > 0 ? {color: 'red'} : {color: 'green'} }>{ checkMap[key] > 0 ?
+                          'You need: ' + checkMap[key] : 'You have enough' }
+                        </div>
                       </div>
                     )
                   })}
