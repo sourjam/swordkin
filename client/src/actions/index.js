@@ -16,3 +16,8 @@ export const markMailread = (index, materials, recipes) => {
 export const forgeSword = (recipe, reqKeys) => {
   return ({type: actionType.FORGE_SWORD, payload: {recipe: recipe, reqKeys: reqKeys}})
 }
+
+export const addMail = (mailArray) => {
+  console.log('add mail called')
+  return ({type: actionType.ADD_MAIL, payload: mailArray})
+}

@@ -2,12 +2,16 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
+import { addMail } from './actions'
 import reducer from './reducers'
 import css from './client.css'
 
 import StartScreen from './containers/startScreen'
 import GameScreen from './containers/gameScreen'
 
+import MailGenerator from './components/mailGenerator'
+
+const mailbox = new MailGenerator()
 const store = createStore(reducer)
 
 export default class App extends React.Component {
@@ -37,6 +41,8 @@ export default class App extends React.Component {
           element: '???',
           quest: false,
           feats: [],
+          timerOrigin: 0,
+          questFlag: false
         }
         let initMaterial = {
           type: 'material',
@@ -55,7 +61,15 @@ export default class App extends React.Component {
           quests: []
         }
         newState.swordkinReducer.mail.push(initMail)
+      } else {
+        let mail = mailbox.generateMail(newState.swordkinReducer)
+        if (mail && mail.length > 0) {
+          console.log('mail', mail)
+          store.dispatch(addMail(mail))
+        }
       }
+      // TODO
+      // check if a new letter should be sent
       this.setState(newState.swordkinReducer)
     })
   }

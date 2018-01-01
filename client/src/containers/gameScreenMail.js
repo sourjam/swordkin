@@ -47,17 +47,17 @@ class gameScreenMail extends React.Component {
                   <div style={{display: 'none'}} id={'m-letterModal-' + idx } className={'m-letterModal'}>
                     <p>From: {letter.from}</p>
                     <p>{ letter.content }</p>
-                    { letter.materials ?
+                    { letter.materials.length> 0 ?
                       <p><strong>Enclosed material: {letter.materials[0].name} x {letter.materials[0].count}</strong></p>
                       : null
                     }
-                    { letter.recipes ?
+                    { letter.recipes.length > 0 ?
                       <p><strong>Enclosed recipe: {letter.recipes[0].name}</strong></p>
                       : null
                     }
-                    { letter.unread === true ?
-                      <button onClick={() => {this.displayLetterModal(idx, letter)}}>Collect</button>
-                      : null
+                    { letter.unread === true && (letter.materials.length > 0 || letter.recipes.length > 0) ?
+                      <button onClick={() => {this.displayLetterModal(idx, letter)}}>Collect</button> :
+                      <button onClick={() => {this.displayLetterModal(idx, letter)}}>Close</button>
                     }
                   </div>
                 </div>

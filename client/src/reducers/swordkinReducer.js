@@ -2,15 +2,17 @@ import * as actionType from '../actions/actionType'
 import extend from 'lodash/fp/extend';
 import clone from 'lodash/fp/clone';
 
-const swordkinReducer = (state = {timer: 0, swords: [], materials: {ore: {count: 0}}, recipes: {}}, action) => {
+const swordkinReducer = (state = {timer: 0, mail: [], swords: [], materials: {ore: {count: 0}}, recipes: {}}, action) => {
   let newState;
   switch(action.type) {
     case actionType.START_GAME:
       newState = {start: action.payload}
       return newState = extend(state, newState);
-    case actionType.INCREMENT_TIME:
-      // internal timer for quests
-      return state;
+    case actionType.ADD_MAIL:
+      newState = clone(state)
+      newState.mail = newState.mail.concat(action.payload)
+      console.log('new state form mail', newState.mail)
+      return newState;
     case actionType.INCREMENT_ORE:
       let newState = clone(state)
       newState.materials.ore.count = state.materials.ore.count + action.payload
