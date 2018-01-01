@@ -21,6 +21,7 @@ export default class App extends React.Component {
       if (!newState.swordkinReducer.init) {
         // give new player first letter and first recipe
         newState.swordkinReducer.init = true
+        newState.swordkinReducer.timer = 0
         newState.swordkinReducer.recipes = {}
         newState.swordkinReducer.materials = {ore: {count: 0}}
         newState.swordkinReducer.mail = []
@@ -69,7 +70,9 @@ export default class App extends React.Component {
         { !this.state.start ?
           <StartScreen />
           :
-          <GameScreen mail={this.state.mail} unreadMail={unreadMail.length} materials={this.state.materials} recipes={this.state.recipes} swords={this.state.swords} />
+          <GameScreen mail={this.state.mail} unreadMail={unreadMail.length} materials={this.state.materials} recipes={this.state.recipes} swords={this.state.swords}
+          timer={this.state.timer}
+          />
         }
       </div>
     )

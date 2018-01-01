@@ -2,7 +2,7 @@ import * as actionType from '../actions/actionType'
 import extend from 'lodash/fp/extend';
 import clone from 'lodash/fp/clone';
 
-const swordkinReducer = (state = {swords: [], materials: {ore: {count: 0}}, recipes: {}}, action) => {
+const swordkinReducer = (state = {timer: 0, swords: [], materials: {ore: {count: 0}}, recipes: {}}, action) => {
   let newState;
   switch(action.type) {
     case actionType.START_GAME:
@@ -14,6 +14,7 @@ const swordkinReducer = (state = {swords: [], materials: {ore: {count: 0}}, reci
     case actionType.INCREMENT_ORE:
       let newState = clone(state)
       newState.materials.ore.count = state.materials.ore.count + action.payload
+      newState.timer = state.timer += 1
       return newState;
     case actionType.MARK_MAILREAD:
       // mark mail as read

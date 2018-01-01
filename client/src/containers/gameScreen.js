@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 import GameScreenMail from './gameScreenMail';
 import GameScreenArmory from './gameScreenArmory';
 import GameScreenRecipes from './gameScreenRecipes';
+import GameScreenMaterials from './gameScreenMaterials';
 // todo
 // GameScreenRecipes
 // GameScreenMaterials
@@ -37,7 +38,7 @@ class gameScreen extends React.Component {
     return (
       <div className={'o-gamescreen'}>
         { this.props.materials ?
-          <div className={'a-oreCounter'}>Ore: {this.props.materials.ore.count}</div>
+          <div className={'a-oreCounter'}>Ore: {this.props.materials.ore.count} Timer: {this.props.timer}</div>
           : null
         }
         <div className={'m-actionMenu'}>
@@ -56,7 +57,10 @@ class gameScreen extends React.Component {
               Recipes
             </button>
           : null }
-          { this.props.materials && Object.keys(this.props.materials).length > 1 ? <button>Materials</button>
+          { this.props.materials && Object.keys(this.props.materials).length > 1 ?
+            <button className={ this.state.currentModal == 3 ? 'isActive' : null } onClick={()=> {this.displayModal(3)}}>
+              Materials
+            </button>
           : null}
           { this.props.ore >= 10 && Object.keys(this.props.recipes).length > 0 ? <button>Quests</button> : null }
 
@@ -71,6 +75,10 @@ class gameScreen extends React.Component {
           {
             this.props.recipes && this.state.currentModal == 2 ?
             <GameScreenRecipes materials={this.props.materials} recipes={this.props.recipes} /> : null
+          }
+          {
+            this.props.materials && this.state.currentModal == 3 ?
+            <GameScreenMaterials materials={this.props.materials} /> : null
           }
         </div>
       </div>
