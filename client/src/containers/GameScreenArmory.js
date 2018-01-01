@@ -10,7 +10,11 @@ class gameScreenArmory extends React.Component {
         { this.props.swords.length === 0 ?
           <div className={'a-armoryEmptyMsg'}>No swords here...<br />Why not try making one?</div>
           :
-          <div>some swords here</div>
+          <div>
+            { this.props.swords.map((sword, idx) => {
+              return <div key={'armorySword-' + idx}>{sword.name}</div>
+            })}
+          </div>
         }
       </div>
     )

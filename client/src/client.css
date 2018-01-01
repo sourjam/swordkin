@@ -189,6 +189,14 @@ html, body {
   font-size: .8em;
 }
 
+.a-recipeMaterial {
+  display: flex;
+}
+
+.a-recipeMaterial div {
+  width: 50%;
+}
+
 .a-recipeForgeButton {
   position: absolute;
   top: 1vw;
