@@ -32,8 +32,9 @@ export default class App extends React.Component {
           descrip: "Papa's greatest work.",
           requires: {ore: 10, soulHilt: 1},
           power: 99,
-          durability: 0,
-          element: 'none'
+          durability: 1,
+          element: '???',
+          feats: []
         }
         let initMaterial = {
           type: 'material',

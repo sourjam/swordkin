@@ -12,7 +12,15 @@ class gameScreenArmory extends React.Component {
           :
           <div>
             { this.props.swords.map((sword, idx) => {
-              return <div key={'armorySword-' + idx}>{sword.name}</div>
+              return (
+                <div key={'armorySword-' + idx} className={'m-armoryCard'}>
+                  <div>Name: {sword.name}</div>
+                  <div>Power: {sword.power}</div>
+                  <div>Durability: {sword.durability}</div>
+                  <div>Element: {sword.element}</div>
+                  <div>Feats: { sword.feats.length === 0 ? 'None' : sword.feats[0]}</div>
+                </div>
+              )
             })}
           </div>
         }

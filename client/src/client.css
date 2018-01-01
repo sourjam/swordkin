@@ -164,6 +164,13 @@ html, body {
   width: 80vw;
   background-color: lightslategray;
 }
+
+.m-armoryCard {
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  flex-direction: column;
+}
 /* END OF ARMORY VIEW */
 
 /* RECIPES VIEW */
