@@ -1,16 +1,19 @@
 import clone from 'lodash/fp/clone';
+import PersonGenerator from '../lib/personGenerator';
+
+let personGenerator = new PersonGenerator();
 
 class Letter {
-  constructor(from, subject, content, recipes = [], materials = [], quest = {}) {
+  constructor(subject, content, recipes = [], materials = [], quest = {}) {
     this.unread = true
-    this.from = from
-    this.subject = subject
+    this.from = personGenerator.create()
+    this.subject = ''
     this.content = content
     this.recipes = recipes
     this.materials = materials
     this.quest = quest
     let quest001 = {
-      id: q001,
+      id: 'q001',
       name: 'Go Here Now',
       descrip: 'This is thing',
       validIf: { swordAmmit: 1 },
@@ -26,9 +29,6 @@ class Letter {
 export default class mailGenerator {
   constructor() {
     console.log('hello generator')
-    this.createdMail = {
-
-    }
   }
   generateMail(state) {
     let mail
@@ -36,8 +36,8 @@ export default class mailGenerator {
     if (state.swords && state.swords[0] && state.swords[0].id === 'swordAmmit' && !state.swords[0].questFlag) {
       console.log('load ammit mails')
       state.swords[0].questFlag = true;
-      let villageBoyMail = new Letter('Dao', 'Please sir', 'I want fame.')
-      let envoyMail = new Letter('Royal Envoy', 'An offer', 'The sword')
+      let villageBoyMail = new Letter('Please sir', 'I want fame.')
+      let envoyMail = new Letter('An offer', 'The sword')
       mail = [villageBoyMail, envoyMail]
     } else {
 
