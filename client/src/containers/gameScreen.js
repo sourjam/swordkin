@@ -48,8 +48,8 @@ class gameScreen extends React.Component {
             </button> : null
           }
           { this.props.mail && this.props.mail.length > 0 ?
-            <button className={ this.state.currentModal == 1 ? 'isActive' : null } onClick={()=>{this.displayModal(1)}}>
-              Mail: {this.props.unreadMail == 0 ? <span>{this.props.unreadMail}</span> : <strong style={{color: 'red'}}>{this.props.unreadMail}</strong> }
+            <button style={ this.props.unreadMail > 0 ? {'backgroundColor': 'red'} : null} className={ this.state.currentModal == 1 ? 'isActive' : null } onClick={()=>{this.displayModal(1)}}>
+              Mail: {this.props.unreadMail == 0 ? <span>{this.props.unreadMail}</span> : <strong>{this.props.unreadMail}</strong> }
             </button>
           : null }
           { this.props.recipes && Object.keys(this.props.recipes).length > 0 ?
@@ -62,7 +62,7 @@ class gameScreen extends React.Component {
               Materials
             </button>
           : null}
-          { this.props.ore >= 10 && Object.keys(this.props.recipes).length > 0 ? <button>Quests</button> : null }
+          { this.props.quests && this.props.quests.length > 0 ? <button>Quests</button> : null }
 
         </div>
         <div className={'m-actionModals'}>

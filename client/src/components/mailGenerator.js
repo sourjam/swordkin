@@ -1,20 +1,34 @@
 import clone from 'lodash/fp/clone';
 
 class Letter {
-  constructor(from, subject, content, recipes = [], materials = [], quests = []) {
+  constructor(from, subject, content, recipes = [], materials = [], quest = {}) {
     this.unread = true
     this.from = from
     this.subject = subject
     this.content = content
     this.recipes = recipes
     this.materials = materials
-    this.quests = quests
+    this.quest = quest
+    let quest001 = {
+      id: q001,
+      name: 'Go Here Now',
+      descrip: 'This is thing',
+      validIf: { swordAmmit: 1 },
+      materialReward: [],
+      recipeReward: [],
+      questReward: [],
+      questLevel: 0,
+      accepted: false,
+    }
   }
 }
 
 export default class mailGenerator {
   constructor() {
     console.log('hello generator')
+    this.createdMail = {
+
+    }
   }
   generateMail(state) {
     let mail
@@ -25,6 +39,8 @@ export default class mailGenerator {
       let villageBoyMail = new Letter('Dao', 'Please sir', 'I want fame.')
       let envoyMail = new Letter('Royal Envoy', 'An offer', 'The sword')
       mail = [villageBoyMail, envoyMail]
+    } else {
+
     }
 
     return mail

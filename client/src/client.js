@@ -30,6 +30,7 @@ export default class App extends React.Component {
         newState.swordkinReducer.materials = {ore: {count: 0}}
         newState.swordkinReducer.mail = []
         newState.swordkinReducer.swords = []
+        newState.swordkinReducer.quests = []
         let initRecipe = {
           type: 'recipe',
           id: 'swordAmmit',
@@ -42,7 +43,6 @@ export default class App extends React.Component {
           quest: false,
           feats: [],
           timerOrigin: 0,
-          questFlag: false
         }
         let initMaterial = {
           type: 'material',
@@ -84,7 +84,7 @@ export default class App extends React.Component {
         { !this.state.start ?
           <StartScreen />
           :
-          <GameScreen mail={this.state.mail} unreadMail={unreadMail.length} materials={this.state.materials} recipes={this.state.recipes} swords={this.state.swords}
+          <GameScreen mail={this.state.mail} unreadMail={unreadMail.length} materials={this.state.materials} recipes={this.state.recipes} swords={this.state.swords} quests={this.state.quests}
           timer={this.state.timer}
           />
         }
