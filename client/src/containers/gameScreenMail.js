@@ -42,7 +42,7 @@ class gameScreenMail extends React.Component {
               return (
                 <div key={'mail-' + idx}>
                   <div style={ letter.unread === true ? {border: '1px solid red' ,color: 'red'} : null } onClick={() => {this.displayLetterModal(idx)}} className={'a-letterHeader'} key={'letter-' + idx}>
-                    From: {letter.from}, <i>{letter.subject}</i>
+                    From: {letter.from}
                   </div>
                   <div style={{display: 'none'}} id={'m-letterModal-' + idx } className={'m-letterModal'}>
                     <p>From: {letter.from}</p>
